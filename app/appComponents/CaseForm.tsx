@@ -54,11 +54,11 @@ export default function CaseForm({ onSubmit, isLoading }: CaseFormProps) {
             <Label htmlFor="caseNumber">Receipt Number</Label>
             <Input
               id="caseNumber"
-              placeholder="e.g. IOE9107154371"
+              placeholder="e.g. IOE9101234567"
               value={caseNumber}
               onChange={(e) => setCaseNumber(e.target.value.toUpperCase())}
             />
-            <p className="text-sm text-gray-500">Enter your 13-character receipt number (e.g., IOE9107154371)</p>
+            <p className="text-sm text-gray-500">Enter your 13-character receipt number (e.g., IOE9101234567)</p>
           </div>
         </CardContent>
         <CardFooter>
