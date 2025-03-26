@@ -1,0 +1,1 @@
+export const USCIS_TOKEN = 'uscis_token';
