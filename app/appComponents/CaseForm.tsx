@@ -30,7 +30,7 @@ export default function CaseForm({ onSubmit, isLoading }: CaseFormProps) {
     
     const caseNumberRegex = /^[A-Z]{3}[0-9]{10}$/
     if (!caseNumberRegex.test(caseNumber)) {
-      setError("Please enter a valid case number format (e.g., IOE9107154371)")
+      setError("Please enter a valid case number format (e.g., IOE9101234567)")
       return
     }
 
