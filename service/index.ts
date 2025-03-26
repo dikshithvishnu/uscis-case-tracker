@@ -13,16 +13,12 @@ const client = axios.create({
 
 const handleUnauthorized = async () => {
 	await postData('/logout', {});
-	// window?.sessionStorage?.removeItem(ACCESS_TOKEN_KEY);
-	// window?.sessionStorage?.removeItem(REFRESH_TOKEN_KEY);
     window?.location?.href === '/';
 };
 
 const handleAxiosError = async (error: AxiosError) => {
 	if (error?.response?.status === 401) {
 		window?.sessionStorage?.removeItem('session_id');
-		//   window?.sessionStorage?.removeItem(ACCESS_TOKEN_KEY);
-		//   window?.sessionStorage?.removeItem(REFRESH_TOKEN_KEY);
 		window?.location.href === '/';
 	}
 	return error.response;
