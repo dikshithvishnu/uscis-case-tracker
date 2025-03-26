@@ -7,16 +7,18 @@ export async function handleUSCISAuth(setLoading: (loading: boolean) => void, ro
     try {
         setLoading(true);
         
-        const params = new URLSearchParams();
-        params.append("grant_type", "client_credentials");
-        params.append("client_id", process.env.NEXT_PUBLIC_USCIS_CLIENT_ID!);
-        params.append("client_secret", process.env.NEXT_PUBLIC_USCIS_CLIENT_SECRET!);
+        // const params = new URLSearchParams();
+        // params.append("grant_type", "client_credentials");
+        // params.append("client_id", process.env.NEXT_PUBLIC_USCIS_CLIENT_ID!);
+        // params.append("client_secret", process.env.NEXT_PUBLIC_USCIS_CLIENT_SECRET!);
         
-        const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/oauth/accesstoken`, params, {
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded",
-            },
-        });
+        // const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/oauth/accesstoken`, params, {
+        //     headers: {
+        //         "Content-Type": "application/x-www-form-urlencoded",
+        //     },
+        // });
+
+        const response = await axios.post('/api/oauth', {})
 
         if(response.status === 200) {
             window.sessionStorage.setItem(USCIS_TOKEN, response.data.access_token);
@@ -32,7 +34,9 @@ export async function handleUSCISAuth(setLoading: (loading: boolean) => void, ro
 export async function handleFetchCaseStatus(caseNumber: string, setLoading: (loading: boolean) => void, setData: (data: any) => void) {
     try {
         setLoading(true);
-        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/case-status/${caseNumber}`, {
+        const response = await axios.post(`/api/case-status`, {
+            caseNumber: caseNumber
+        }, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${window.sessionStorage.getItem(USCIS_TOKEN)}`,
