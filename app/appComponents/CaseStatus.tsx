@@ -59,7 +59,7 @@ export default function CaseStatus({ caseData }: CaseStatusProps) {
           <div>
             <h3 className="font-semibold text-lg mb-4">Case History</h3>
             <div className="space-y-4">
-              {caseData?.hist_case_status[0] && caseData?.hist_case_status?.map((status, index) => (
+              {caseData?.hist_case_status ? caseData?.hist_case_status?.map((status, index) => (
                 <div key={index} className="flex gap-4">
                   <div className="flex-shrink-0 flex flex-col items-center">
                     <div className="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center">
@@ -74,10 +74,9 @@ export default function CaseStatus({ caseData }: CaseStatusProps) {
                     <p className="mt-1">{status.completed_text_en}</p>
                   </div>
                 </div>
-              ))}
-              {caseData.hist_case_status === null && (
+              )) : (<>
                 <p className="text-gray-500">No case history available.</p>
-              )}
+              </>)}
             </div>
           </div>
         </div>
