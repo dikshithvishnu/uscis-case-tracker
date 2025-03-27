@@ -75,7 +75,7 @@ export default function CaseStatus({ caseData }: CaseStatusProps) {
                   </div>
                 </div>
               ))}
-              {!caseData.hist_case_status.length && (
+              {!caseData.hist_case_status && (
                 <p className="text-gray-500">No case history available.</p>
               )}
             </div>
