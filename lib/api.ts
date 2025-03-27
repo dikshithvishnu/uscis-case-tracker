@@ -36,7 +36,12 @@ export async function handleFetchCaseStatus(caseNumber: string, setLoading: (loa
         }
     } catch(err: any) {
         setLoading(false);
+        if(err?.response?.status === 401 || err?.response?.status === 403) {
+            window.sessionStorage.removeItem(USCIS_TOKEN);
+            window.location.href = '/';
+            return;
+        }
         setData(err?.response?.data);
-        console.log(err?.response?.data)
+        console.log(err?.response?.data);
     }
 }
