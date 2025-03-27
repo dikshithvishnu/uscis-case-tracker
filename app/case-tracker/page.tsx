@@ -82,14 +82,14 @@ export default function CaseTracker() {
           </div>
         )}
 
-        <div className="mt-12 text-center">
+        {/* <div className="mt-12 text-center">
           <a href="https://github.com/dikshithvishnu/uscis-case-tracker" target="_blank">
             <Button variant="outline" className="flex items-center gap-2">
               <FiGithub className="h-4 w-4" />
               Contribute on GitHub
             </Button>
           </a>
-        </div>
+        </div> */}
       </div>
     </main>
   )
