@@ -38,7 +38,7 @@ export default function CaseStatus({ caseData }: CaseStatusProps) {
               Receipt Number: {caseData.receiptNumber}
             </p>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-col items-start lg:flex-row lg:items-center gap-2">
             <Badge variant="outline" className="flex items-center gap-1">
               <FileText className="h-3 w-3" />
               Form {caseData.formType}
@@ -70,7 +70,7 @@ export default function CaseStatus({ caseData }: CaseStatusProps) {
                 caseData?.hist_case_status?.map((status, index) => (
                   <div key={index} className="flex gap-4">
                     <div className="flex-shrink-0 flex flex-col items-center">
-                      <div className="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center">
+                      <div className="h-10 w-10 p-3 rounded-full bg-blue-100 flex items-center justify-center">
                         <CalendarIcon className="h-4 w-4 text-blue-600" />
                       </div>
                       {index < caseData.hist_case_status.length - 1 && (
