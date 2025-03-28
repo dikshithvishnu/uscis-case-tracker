@@ -43,9 +43,16 @@ export default function CaseStatus({ caseData }: CaseStatusProps) {
               <FileText className="h-3 w-3" />
               Form {caseData.formType}
             </Badge>
-            <Badge className="bg-blue-500">
-              {caseData.current_case_status_text_en}
-            </Badge>
+            {caseData.current_case_status_text_en === "Travel Document Was Returned to USCIS And Will Be Held For 180 Days" ? (
+                <div className="bg-blue-500 text-white text-xs font-medium rounded-md px-2 py-1 shrink-0 w-fit flex-wrap">
+                {caseData.current_case_status_text_en}
+              </div>
+            ) : (
+                <Badge className="bg-blue-500">
+                {caseData.current_case_status_text_en}
+                </Badge>
+            )} 
+            
           </div>
         </div>
       </CardHeader>
